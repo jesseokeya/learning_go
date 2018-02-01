@@ -1,0 +1,55 @@
+🐳 Docker Notes 🐳
+
+/* Get Docker Version Details */
+docker —version
+docker-compose —version
+docker-machine —version
+
+/* List All Docker Containers  */
+docker ps
+
+/* Test a Docker hello-world image pulled from the docker registry  */
+docker run hello-world
+
+/* Start Up A nginx Docker web server  named webserver on http://localhost/  */
+docker run -d -p 80:80 --name webserver nginx
+
+** NOTE ‘webserver’ is a name and could be renamed to anything **
+
+/* Start and Stop docker web server */
+docker stop webserver
+docker start webserver
+
+/* List all Docker Containers including not running ones  but `docker ps` just lists running containers */
+docker ps -a
+
+/* Permenently delete a docker container */
+docker rm -f webserver
+
+/* List all Docker Images */
+docker images
+
+/* Remove all docker Images */
+docker rmi
+
+/* Remove a specific docker image */
+docker rmi nginx
+
+———————————
+	Important ‼️
+———————————
+		↓
+
+/* Building / Creating a Docker Image */
+docker build -t cloud-native-go:1.0.0 .
+
+/* Tagging a Docker Image and Preparing it for a Push to Docker Hub*/
+docker tag cloud-native-go:1.0.0 jesseokeya/cloud-native-go:1.0.0
+
+/* Pushing a Tagged Docker Image To Docker Hub */
+docker push jesseokeya/cloud-native-go:1.0.0
+
+/* Running a Docker image */
+docker run -it -p 8080:8080 cloud-native-go:1.0.0
+
+—————————————————————————————
