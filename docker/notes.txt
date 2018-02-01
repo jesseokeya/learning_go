@@ -35,10 +35,8 @@ docker rmi
 /* Remove a specific docker image */
 docker rmi nginx
 
-———————————
 	Important ‼️
-———————————
-		↓
+		  ↓
 
 /* Building / Creating a Docker Image */
 docker build -t cloud-native-go:1.0.0 .
@@ -51,5 +49,3 @@ docker push jesseokeya/cloud-native-go:1.0.0
 
 /* Running a Docker image */
 docker run -it -p 8080:8080 cloud-native-go:1.0.0
-
-—————————————————————————————
