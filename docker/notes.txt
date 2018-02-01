@@ -35,6 +35,12 @@ docker rmi
 /* Remove a specific docker image */
 docker rmi nginx
 
+/* To Get Docker Memory Cpu Usage */
+docker stats
+
+/* Force stop a Running Container */
+docker kill image_name
+
     Important ‼️
 	↓
 
@@ -52,3 +58,12 @@ docker run -it -p 8080:8080 cloud-native-go:1.0.0
 
 /* Setting An Environment Variable Before Running a Docker image */
 docker run -it -e "PORT=3000" -p 8080:3000 cloud-native-go:1.0.0
+
+/* Running a Docker Image By Name */
+docker run --name cloud-native-go -d -p 8080:8080 cloud-native-go:1.0.0
+
+/* Stop Running a Docker Image */
+docker stop cloud-native-go
+
+/* Specifying Allowed Memeory And Cpu Quota Limit For a Docker Image*/
+docker run --name cloud-native-go --cpu-quota 50000 --memory 64m --memory-swappiness 0 -d -p 8080:8080 cloud-native-go:1.0.1
