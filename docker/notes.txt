@@ -49,3 +49,6 @@ docker push jesseokeya/cloud-native-go:1.0.0
 
 /* Running a Docker image */
 docker run -it -p 8080:8080 cloud-native-go:1.0.0
+
+/* Setting An Environment Variable Before Running a Docker image */
+docker run -it -e "PORT=3000" -p 8080:3000 cloud-native-go:1.0.0
