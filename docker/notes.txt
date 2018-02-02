@@ -3,6 +3,7 @@
 /* Get Docker Version Details */
 docker —version
 docker-compose —version
+
 docker-machine —version
 
 /* List All Docker Containers  */
