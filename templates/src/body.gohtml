@@ -1,0 +1,19 @@
+{{define "Body"}}
+  {{range $index, $value := .}}
+    <h3><u>{{ $value.AcaYear }}</u></h3>
+    <h3><u>{{ $value.Fall.Term }}</u><h3>
+      {{range $value.Fall.Courses }}
+        Course Code - {{ .Number }} <br/>
+        Course Number - {{ .Name }} <br/>
+        Course Units - {{ .Units }} <br/><br/>
+      {{end}}
+    <hr/>
+    <h3><u>{{ $value.Spring.Term }}</u><h3>
+      {{range $value.Spring.Courses }}
+        Course Code - {{ .Number }} <br/>
+        Course Number - {{ .Name }} <br/>
+        Course Units - {{ .Units }} <br/><br/>
+      {{end}}
+    <hr/>
+  {{end}}
+{{end}}
