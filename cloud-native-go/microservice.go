@@ -5,18 +5,22 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gorilla/mux"
+	httplogger "github.com/jesseokeya/go-httplogger"
 	"github.com/jesseokeya/learning_go/cloud-native-go/api"
 )
 
 func main() {
-	http.HandleFunc("/", index)
-	http.HandleFunc("/api/echo", api.EchoHandleFunc)
-	http.HandleFunc("/api/hello", api.HelloHandleFunc)
+	r := mux.NewRouter()
 
-	http.HandleFunc("/api/books", api.BooksHandleFunc)
-	http.HandleFunc("/api/books/", api.BookHandleFunc)
+	r.HandleFunc("/", index)
+	r.HandleFunc("/api/echo", api.EchoHandleFunc)
+	r.HandleFunc("/api/hello", api.HelloHandleFunc)
 
-	http.ListenAndServe(port(), nil)
+	r.HandleFunc("/api/books", api.BooksHandleFunc)
+	r.HandleFunc("/api/books/", api.BookHandleFunc)
+
+	http.ListenAndServe(port(), httplogger.Golog(r))
 }
 
 func port() string {
