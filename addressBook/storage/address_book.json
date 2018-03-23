@@ -1,0 +1,13 @@
+[{
+  "_id": 1,
+  "firstName": "Jesse",
+  "lastName": "Okeya",
+  "address": "Chukwudif1",
+  "phoneNumber": "6134135540"
+}, {
+  "_id": 2,
+  "firstName": "Naomi",
+  "lastName": "Okeya",
+  "address": "933 Greenbriar Avenue",
+  "phoneNumber": "61344452344"
+}]
