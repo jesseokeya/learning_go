@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -36,4 +37,13 @@ func (d *DB) readFromFile(location string) []byte {
 func ByteToString(b *[]byte) string {
 	result := *b
 	return string(result[:])
+}
+
+// DeleteFile removes file in storage
+func (d *DB) DeleteFile(path string) {
+	var err = os.Remove(path)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("==> done deleting file -> " + path)
 }

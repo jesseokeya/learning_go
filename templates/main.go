@@ -13,8 +13,7 @@ type course struct {
 }
 
 type semester struct {
-	Term    string
-	Courses []course
+	Term string
 }
 
 type year struct {

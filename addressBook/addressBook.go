@@ -55,8 +55,9 @@ func (a *AddressBook) AddEntry(entry Entry) {
 }
 
 // RemoveEntry removes entry from AddressBook
-func (a *AddressBook) RemoveEntry(query ...string) {
+func (a *AddressBook) RemoveEntry(query ...string) []Entry {
 	data := []Entry{}
+	result := []Entry{}
 	load := a.LoadFromFile()
 	err := json.Unmarshal([]byte(load), &data)
 	if err != nil {
@@ -65,11 +66,13 @@ func (a *AddressBook) RemoveEntry(query ...string) {
 	for _, entry := range data {
 		for _, q := range query {
 			if entry.FirstName == q || entry.LastName == q || entry.Address == q || entry.PhoneNumber == q {
+				result = append(result, entry)
 				deleteEntry(entry, &data)
 			}
 		}
 	}
 	a.SaveToFile(data)
+	return result
 }
 
 // RemoveEntryByID removes entry from AddressBook by id
