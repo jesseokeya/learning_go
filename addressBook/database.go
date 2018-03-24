@@ -10,12 +10,10 @@ import (
 // DB is an interface that interacts with the addressBook database
 type DB struct{}
 
-func (d *DB) create(filename string) {
+func (d *DB) create(filename string) error {
 	file, err := os.Create(filename)
-	if err != nil {
-		log.Fatal("Cannot create file", err)
-	}
 	defer file.Close()
+	return err
 }
 
 func (d *DB) writeToFile(location string, data string) {
@@ -40,10 +38,8 @@ func ByteToString(b *[]byte) string {
 }
 
 // DeleteFile removes file in storage
-func (d *DB) DeleteFile(path string) {
+func (d *DB) DeleteFile(path string) error {
 	var err = os.Remove(path)
-	if err != nil {
-		panic(err)
-	}
 	fmt.Println("==> done deleting file -> " + path)
+	return err
 }
