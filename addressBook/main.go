@@ -14,7 +14,7 @@ var (
 	message string
 )
 
-func init() {
+func initialize() {
 	a = AddressBook{}
 	fmt.Println(" \n------------------------------------ ")
 	fmt.Println(" 📕 Welcome To Your Address Book 📗 ")
@@ -34,6 +34,7 @@ func init() {
 }
 
 func main() {
+	initialize()
 	fmt.Println(" Choose From The Numbers Above ")
 	fmt.Println(" ----------------------------------- ")
 	for {
