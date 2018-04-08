@@ -11,9 +11,9 @@ func main() {
 	}
 
 	sa.NewStringArray(&StringArray{})
-	sa.Add("Jesse", "Naomi", "Peter", "Wee", "hanna")
+	sa.Add("Josh", "Jesse", "Naomi", "Peter", "Kaine", "Hanna", "Bekimbo", "Thomas")
 	sa.AddAt(2, "James")
 	fmt.Println(sa.Contains("James"))
 	fmt.Println(sa.Remove(1))
-	fmt.Println(sa.stringArray)
+	fmt.Println(sa)
 }

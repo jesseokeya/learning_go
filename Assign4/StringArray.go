@@ -76,7 +76,8 @@ func (sa *StringArray) Contains(s string) bool {
 // Strings specified by the minimum capacity argument.
 func (sa *StringArray) EnsureCapacity(minCapacity int) {
 	oldStringArray := sa.stringArray
-	if minCapacity > sa.capacity {
+	if minCapacity >= sa.capacity {
+		sa.capacity = minCapacity
 		sa.stringArray = make([]string, minCapacity)
 		for index, stringValue := range oldStringArray {
 			sa.stringArray[index] = stringValue
