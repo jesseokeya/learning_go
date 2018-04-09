@@ -57,6 +57,7 @@ func main() {
 	----------------------------*/
 	testSuccessful := sa.Contains(sa.stringArray[sa.Size()-1])
 	testSuccessful = testSuccessful && sa.IndexOf("MAT8001") == sa.Size()-1
+	testSuccessful = testSuccessful && !sa.IsEmpty()
 	if testSuccessful {
 		fmt.Println("Test7: Passed")
 	}
