@@ -68,3 +68,36 @@ docker stop cloud-native-go
 
 /* Specifying Allowed Memeory And Cpu Quota Limit For a Docker Image*/
 docker run --name cloud-native-go --cpu-quota 50000 --memory 64m --memory-swappiness 0 -d -p 8080:8080 cloud-native-go:1.0.1
+
+----------------
+    Extras 
+----------------
+ Docker Notes
+- docker ps -a 
+- docker images 
+- docker rm -f $(docker ps -a -q)
+- docker rmi -f $(docker images -a -q)’
+- docker pull <container_name>
+- docker create <container_name> // Gives you the container id
+- docker start -a <container_id>
+- docker start -a <container_id> <optional_command>
+- docker stop <container_id>
+- docker kill <container_id>
+- docker run <container_name> <optional_command>
+- docker run -p <port>:<port> <image_id>
+- docker system prune
+- docker logs <container_id>
+- docker exec -it <container_id> <command or “sh”> // prfereable
+- docker run -it <container_id> <command or “sh”>
+- docker build .
+- docker build -t  <tag_name> <container_name> .
+- docker commit -c ‘CMD [“redis-server”]’ <container_id>
+- docker-compose up
+- docker-compose down
+- docker-compose up -d
+- docker-compose up —build
+
+Restart Policies:
+
+
+Kubernetes Notes
